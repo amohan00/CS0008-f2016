@@ -1,0 +1,16 @@
+#program to practice boolean operators in recitation
+
+
+#Here I am assigning a variable to the integer the user inputs
+num = int(input("Please enter a number: "));
+#If the number is greater than zero, I reassign the variable multiplied by 3 and print it
+if (num > 0):
+    num = num*3
+    print(num);
+#Else, If the number is less than zero, I reassign the variable adding 5 and print it
+elif (num < 0):
+    num = num + 5
+    print(num);
+#Else, if the number is zero, I print a string
+else:
+    print("What a cool number!");
