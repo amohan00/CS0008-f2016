@@ -1,0 +1,21 @@
+# name       : Arun Mohan
+# email      : arm198@pitt.edu
+# date       : 9/27/16
+# class      : CS0008-f2016
+# instructor : Max Novelli (man8@pitt.edu)
+#
+# Description:
+# Assignment 1, program that helps the user understand their gas mileage
+
+# Here I ask the user what system to use
+system = input("Enter 'U' USC or 'M' to use Metric: ");
+if (system == "U" or system == "u"):
+    miles = float(input("Enter the amount of miles traveled using only numbers: "))
+    gallons = float(input("Enter how many gallons were used using only numbers: "))
+    km = miles*1.60934
+    liters = gallons*3.78541
+elif (system == "M" or system == "m"):
+    km = float(input("Enter the amount of kilometers traveled using only numbers: "))
+    liters = float(input("Enter how many liters were used using only numbers: "))
+    miles = km * 0.621371
+    gallons = liters * 0.264172
