@@ -30,11 +30,23 @@ else:
 # I calculate fuel consumption in both units
 mpg = miles/gallons;
 lpk = (100*liters)/km;
+# I find the user's efficiency
+if (lpk > 20):
+    rating = "Extremely Poor"
+elif (lpk > 15 and lpk <= 20):
+    rating = "Poor"
+elif (lpk > 10 and lpk <= 15):
+    rating = "Average"
+elif (lpk > 8 and lpk <= 10):
+    rating = "Good"
+else:
+    rating = "Excellent"
 # Here I print all the information in the correct format
-print (format("", '20s'), format("USC", '17s'), "Metric");
-print (format("Distance", '12s'), ":", format(miles, '9.3f'), "miles",\
+print (format("", '30s'), format("USC", '17s'), "Metric");
+print (format("Distance", '22s'), ":", format(miles, '9.3f'), "miles",\
        format(km, '14.3f'), "Km");
-print (format("Gas", '12s'), ":", format(gallons, '9.3f'), "gallons",\
+print (format("Gas", '22s'), ":", format(gallons, '9.3f'), "gallons",\
        format(liters, '12.3f'), "Liters");
-print (format("Consumption", '12s'), ":", format(mpg, '9.3f'), "mpg",\
-       format(lpk, '16.3f'), "1/100Km");
+print (format("Consumption", '22s'), ":", format(mpg, '9.3f'), "mpg",\
+       format(lpk, '16.3f'), "l/100Km");
+print ("\nGas Consumption Rating :", rating);
