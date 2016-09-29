@@ -31,5 +31,10 @@ else:
 mpg = miles/gallons;
 lpk = (100*liters)/km;
 # Here I print all the information in the correct format
-print (format("", '17s'), format("USC", '12s'), "Metric");
-print (format("Distance", '12s'), ":", format(miles, '9.3f'), "Miles");
+print (format("", '20s'), format("USC", '17s'), "Metric");
+print (format("Distance", '12s'), ":", format(miles, '9.3f'), "miles",\
+       format(km, '14.3f'), "Km");
+print (format("Gas", '12s'), ":", format(gallons, '9.3f'), "gallons",\
+       format(liters, '12.3f'), "Liters");
+print (format("Consumption", '12s'), ":", format(mpg, '9.3f'), "mpg",\
+       format(lpk, '16.3f'), "1/100Km");
