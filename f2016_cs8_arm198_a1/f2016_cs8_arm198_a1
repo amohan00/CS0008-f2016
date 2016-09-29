@@ -8,7 +8,7 @@
 # Assignment 1, program that helps the user understand their gas mileage
 
 # Here I ask the user what system to use
-system = input("Enter 'U' USC or 'M' to use Metric: ");
+system = input("Enter 'U' to use USC or 'M' to use Metric: ");
 # Here I check if the user picked USC and ask for their info in those units
 if (system == "U" or system == "u"):
     miles = float(input("Enter the amount of miles traveled using only numbers: "))
@@ -23,7 +23,13 @@ elif (system == "M" or system == "m"):
 # Here I convert Metric to USC
     miles = km * 0.621371
     gallons = liters * 0.264172
+#Here I tell the user if their input was invalid
+else:
+    print("Sorry, Invalid Input!");
+    exit();
 # I calculate fuel consumption in both units
 mpg = miles/gallons;
 lpk = (100*liters)/km;
 # Here I print all the information in the correct format
+print (format("", '17s'), format("USC", '12s'), "Metric");
+print (format("Distance", '12s'), ":", format(miles, '9.3f'), "Miles");
