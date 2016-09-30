@@ -1,0 +1,10 @@
+This is the program for Take Home Assignment #1.
+It first asks the user if they want to use Metric or USC.
+First, if they chose USC, I ask for distance and gasoline in those units and convert it to metric.
+Else, if they chose Metric, I ask for those units instead and convert it to USC.
+Else, I tell the user their input was invalid and exit.
+Next, I calculate fuel consumption in both units.
+Then, I check their consumption in Metric to assign an efficiency rating
+Finally, I print all the information formatted in a table.
+I do not think there were any other notes or issues I need to make you aware of.
+Thank you!
