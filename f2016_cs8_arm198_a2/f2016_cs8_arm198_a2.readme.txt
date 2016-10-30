@@ -1,0 +1,10 @@
+Hello Max!
+To begin with, the only problem I ran into was when I tried opening a file, as pycharm would tell me that the file
+or directory could not be found, no matter what I tried.
+In my program, I first define the two functions. In processFile, I use a 'for' loop to go through each line of the file,
+cut off the ''\n' at the end of each line, split the line to separate the distance, and add the distance to the counter.
+In printKV, I first check if the key has more characters than the key length, and assign a variable to whichever one is
+longer. Then, I check the data type of the value and assign a variable to the corresponding data type. Finally, I print
+the information with the formatting.
+Next, I use a 'while' loop to ask the user for their file. I call processFile to count the lines and distance of
+each file. I call printKV to print all the information in the correct format.
