@@ -34,8 +34,8 @@ def printKV(key, value, klen = 0):
     print(format(key, str(kl) + "s"))   # prints the info with the correct formatting
     print(format(value, fs))
 
-td = 0
-tnl = 0
+td = 0                                  # variable for total distance
+tnl = 0                                 # variable for total # of lines
 file = input("Please provide the file name :")
 while (file and file != "quit" and file != "q"):
     file_object = open(file, "r")
@@ -44,7 +44,7 @@ while (file and file != "quit" and file != "q"):
     printKV("Partial Total # of lines:", number_of_lines)
     printKV("Partial distance run", total_distance)
     file_object.close()
-    td += total_distance
-    tnl += number_of_lines
+    td += total_distance                # adds the partial distance to the total
+    tnl += number_of_lines              # adds number of lines
 printKV("Total # of lines:", number_of_lines)
 printKV("Total distance run", total_distance)
