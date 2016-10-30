@@ -1,0 +1,8 @@
+C:\Users\Arun\AppData\Local\Programs\Python\Python35-32\python.exe C:\Users\Arun\PycharmProjects\CS0008-f2016\f2016_cs8_arm198_a2\f2016_cs8_arm198_a2.py
+Please provide the file name :C:\Users\Arun\Documents\CS0008\CS0008-f2016\f2016_cs8_a2.data.1
+Traceback (most recent call last):
+  File "C:\Users\Arun\PycharmProjects\CS0008-f2016\f2016_cs8_arm198_a2\f2016_cs8_arm198_a2.py", line 41, in <module>
+    file_object = open(file, "r")
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Arun\\Documents\\CS0008\\CS0008-f2016\\f2016_cs8_a2.data.1'
+
+Process finished with exit code 1
