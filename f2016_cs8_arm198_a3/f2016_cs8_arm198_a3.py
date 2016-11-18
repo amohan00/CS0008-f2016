@@ -15,8 +15,9 @@ for header in master_file:
 # Closing the master file
 master_file.close()
 
-# Variable to count the number of lines total
+# Variable to count the total distance and number of lines
 line_counter = 0
+dist_total = 0
 
 # Empty lists to hold all the distances and names
 distances = []
@@ -31,7 +32,8 @@ for line in file_names:
         # Splits each line by the comma and assigns the values to a list
         temp = row.split(',')
         # Removes the new line character from the distance and adds it to a list
-        distances.append(temp[1].rstrip('\n'))
+        temp_dist = temp[1].rstrip('\n')
+        distances.append(temp_dist)
         # Removes the space from the names and adds them to a list
         people.append(temp[0].strip(' '))
         # Adds one to the line counter
@@ -39,5 +41,14 @@ for line in file_names:
     # Closes the file
     names.close()
 
-print(distances)
-print(people)
+# Deleting the headers from each list
+del distances[0], distances[150], distances[300], people[0], people[150], people[300]
+
+# Variables for the index and the total distance
+index = 0
+total_distance = 0
+
+# While loop that goes through every index of distances and adds the values
+while index < len(distances):
+    total_distance += float(distances[index])
+    index += 1
