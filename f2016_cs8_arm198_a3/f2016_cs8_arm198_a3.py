@@ -70,8 +70,34 @@ min_dist = min(distances)
 max_part = people[distances.index(max_dist)]
 min_part = people[distances.index(min_dist)]
 
-# Copy the lists, find the intersection, subtract the length
+# Finding how many names repeat
+# Empty List to copy the list with names
 people_copy = []
+# For loop to go through each line of the list
 for thing in people:
+    # Adds the line to the copy of the list
     people_copy.append(thing)
+# Sorts the list alphabetically
 people_copy.sort()
+# Variables to count how many names appear more than once
+repeats = 0
+count = 0
+# While loop to go through the sorted list until the second to last one
+while count < len(people_copy) - 1:
+    # Counts a repeat only if the name is the same as the one after it and not before it, to avoid doubles
+    if people_copy[count] == people_copy[count + 1] and people_copy[count] != people_copy[count - 1]:
+            repeats += 1
+    # Counter to stop the loop
+    count += 1
+
+# Printing all the information with the correct formatting
+print("Number of Input files read   :", file_counter)
+print("Total number of lines read   :", line_counter)
+print("\ntotal distance run           :", total_distance)
+print("\nmax distance run             :", max_dist)
+print("  by participant             :", max_part)
+print("\nmin distance run             :", min_dist)
+print("  by participant             :", min_part)
+print("\nTotal number of participants :", total_part)
+print("Number of participants")
+print("with multiple records        :", repeats)
