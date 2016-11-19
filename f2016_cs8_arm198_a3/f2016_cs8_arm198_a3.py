@@ -61,3 +61,17 @@ while index < len(distances):
     total_distance += float(distances[index])
     # Adds one to the index
     index += 1
+
+# Calculating who ran the furthest and least
+# Variables for the max and min runners and distances
+max_dist = max(distances)
+min_dist = min(distances)
+# Assigns which person has the index of the max and min distances
+max_part = people[distances.index(max_dist)]
+min_part = people[distances.index(min_dist)]
+
+# Copy the lists, find the intersection, subtract the length
+people_copy = []
+for thing in people:
+    people_copy.append(thing)
+people_copy.sort()
