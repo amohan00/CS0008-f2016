@@ -45,12 +45,6 @@ for line in file_names:
 # Deleting the headers from each list
 del distances[0], distances[150], distances[300], people[0], people[150], people[300]
 
-# Calculating total number of participants
-# Convert the list people to a set to get rid of doubles
-people_no_duplicates = set(people)
-# Find the length of the set of all the people
-total_part = len(people_no_duplicates)
-
 # Calculating the total distance ran
 # Variables for the index and the total distance
 index = 0
@@ -70,25 +64,23 @@ min_dist = min(distances)
 max_part = people[distances.index(max_dist)]
 min_part = people[distances.index(min_dist)]
 
-# Finding how many names repeat
-# Empty List to copy the list with names
-people_copy = []
-# For loop to go through each line of the list
-for thing in people:
-    # Adds the line to the copy of the list
-    people_copy.append(thing)
-# Sorts the list alphabetically
-people_copy.sort()
-# Variables to count how many names appear more than once
-repeats = 0
-count = 0
-# While loop to go through the sorted list until the second to last one
-while count < len(people_copy) - 1:
-    # Counts a repeat only if the name is the same as the one after it and not before it, to avoid doubles
-    if people_copy[count] == people_copy[count + 1] and people_copy[count] != people_copy[count - 1]:
-            repeats += 1
-    # Counter to stop the loop
-    count += 1
+# Finding how many names repeat and total names
+# Empty list and dictionary to count repeats
+total_part = []
+repeats = {}
+# For loop to go through every name in the list
+for stuff in people:
+
+    # If statement to check for repeats
+    if stuff not in total_part:
+        # If this is the first time seeing the name, it is added to the list of all participants
+        total_part.append(stuff)
+    elif stuff in total_part and stuff not in repeats:
+        # If this is the second time, it is added to repeats with a value of 2
+        repeats[stuff] = '2'
+    elif stuff in total_part and stuff in repeats:
+        # If this is the third time, it is added to repeats with a value of 3
+        repeats[stuff] = '3'
 
 # Printing all the information with the correct formatting
 print("Number of Input files read   :", file_counter)
@@ -98,6 +90,6 @@ print("\nmax distance run             :", max_dist)
 print("  by participant             :", max_part)
 print("\nmin distance run             :", min_dist)
 print("  by participant             :", min_part)
-print("\nTotal number of participants :", total_part)
+print("\nTotal number of participants :", len(total_part))
 print("Number of participants")
-print("with multiple records        :", repeats)
+print("with multiple records        :", len(repeats))
