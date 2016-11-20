@@ -93,3 +93,13 @@ print("  by participant             :", min_part)
 print("\nTotal number of participants :", len(total_part))
 print("Number of participants")
 print("with multiple records        :", len(repeats))
+
+# Writing an output file with the information
+# Opens a file to be written
+output = open("f2016_cs8_arm193_a3.data.output.csv", 'w')
+# For loop to go through each name
+for each in people:
+    # Writes the person's name, how many times their name repeats (or 1 if it doesn't repeat), and their distance
+    output.write(each + ", " + str(repeats.get(each, 1)) + ", " + distances[people.index(each)]+'\n')
+# Closes the file
+output.close()
