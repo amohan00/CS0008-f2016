@@ -13,8 +13,12 @@
 def processFile(fh):
     pd = 0                          # variable for partial distance
     ptn = 0                         # variable for partial # of lines
-    fo = open(fh, 'r')              # opening the file that the user inputs to be read
-    for line in fo:                 # loop that reads through each line of the file
+    # MN: why do you open the file once more?
+    #     you alredy open the file in the main loop
+    #     Also, you cannot open a file using the file object as an argument
+    #fo = open(fh, 'r')              # opening the file that the user inputs to be read
+    #for line in fo:                 # loop that reads through each line of the file
+    for line in fh:
         ptn += 1                    # adds one to the partial line count for each line
         line = line.rstrip('\n')    # removes the \n from the end of each line
         temp = line.split(",")      # splits the line by the comma to create a list with two values
@@ -31,8 +35,11 @@ def printKV(key, value, klen = 0):
         fs = "10.3f"
     else:
         fs = ""
-    print(format(key, str(kl) + "s"))   # prints the info with the correct formatting
-    print(format(value, fs))
+    # MN: you need to print everything on one line
+    #     your statements prints 2 lines for each key,value
+    #print(format(key, str(kl) + "s"))   # prints the info with the correct formatting
+    #print(format(value, fs))
+    print(format(key, str(kl) + "s") + " : " + format(value, fs))
 
 td = 0                                  # variable for total distance
 tnl = 0                                 # variable for total # of lines
@@ -46,5 +53,11 @@ while (file and file != "quit" and file != "q"):
     file_object.close()
     td += total_distance                # adds the partial distance to the total
     tnl += number_of_lines              # adds number of lines
+    # MN: you need to close the file that you open for reading
+    file_object.close()
+    # MN: you need to ask for the new file to be open, 
+    #     otherwise the you will keep working on the same file endlessly 
+    file = input("Please provide the next file name :")
+    
 printKV("Total # of lines:", number_of_lines)
 printKV("Total distance run", total_distance)
