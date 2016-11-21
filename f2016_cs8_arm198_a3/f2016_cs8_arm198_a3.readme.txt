@@ -1,0 +1,11 @@
+Hello Max!
+
+To begin with, I create a list to hold the names of the files and I loop through the master file and append each file
+name to the list. Next I use two more lists to go through each file and add the names to one list and the distances
+to another, and I remove the headers "name" and "distance" from each list. Then I use a while loop to add up all the
+distances, and the max and min functions to find who ran the furthest and the least. Then I use a for loop to find
+which names repeat. I add every name to a list, and the names that repeat to a dictionary with the value equal to
+how many times they repeat. Finally, I print all the information and write each person's info to a file
+
+Thanks!
+Arun Mohan
