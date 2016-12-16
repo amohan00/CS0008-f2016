@@ -1,0 +1,15 @@
+Hello Max!
+
+To begin with, I create a list to hold the names of the files and I loop through the master file, which the user
+provides, and append each filename to the list. Next I use three more lists to go through each file and add the names to
+one list and the distances to another, and then a list with dictionaries to to assign the distances to names.
+Then I use a while loop to add up all the distances, and the max and min functions to find who ran the furthest and the
+least. Then I use a for loop to find which names repeat.
+I add every name to a list, and the names that repeat to a dictionary with the value equal to
+how many times they repeat. Finally, I print all the information and write each person's info to a file
+
+As another note, I could not figure out the formatting in time to hand in the assignment, so I decided to hand in my
+project without it.
+
+Thanks for a great year, I hope I get to see you around!
+Arun Mohan

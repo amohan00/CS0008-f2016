@@ -153,7 +153,7 @@ for row in no_repeats.values():
 # Variables for the max and min runners and distances
 max_dist = max(no_repeats.values())
 min_dist = min(no_repeats.values())
-# Assigns which person has the index of the max and min distances
+# Finds who ran the max and min distances
 for item in no_repeats.keys():
     if no_repeats[item] == max_dist:
         max_part = item
@@ -192,10 +192,10 @@ print("with multiple records        :", len(repeats))
 
 # Writing an output file with the information
 # Opens a file to be written
-output = open("f2016_cs8_arm193_a3.data.output.csv", 'w')
+output = open("f2016_cs8_arm198_fp.data.output.csv", 'w')
 # For loop to go through each name
 for each in people:
     # Writes the person's name, how many times their name repeats (or 1 if it doesn't repeat), and their distance
-    output.write(each + ", " + str(repeats.get(each, 1)) + ", " + distances[people.index(each)]+'\n')
+    output.write(each + ", " + str(repeats.get(each, 1)) + ", " + str(no_repeats[each]) +'\n')
 # Closes the file
 output.close()
