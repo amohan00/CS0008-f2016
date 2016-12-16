@@ -1,3 +1,11 @@
+#
+# MN: header with user, instructor and course info is missing
+#
+# Notes:
+# MN: never assume that numebr of files and file size stay constants!!!
+#
+
+
 # Empty List to store the file names from the master file
 file_names = []
 
@@ -5,6 +13,7 @@ file_names = []
 file_counter = 0
 
 # Opening the master file
+# MN: why not asking the user for the master list file name?
 master_file = open("f2016_cs8_a3.data.txt", 'r')
 
 # Loop to count the files in the master file and add the file names to the list
@@ -43,6 +52,8 @@ for line in file_names:
     names.close()
 
 # Deleting the headers from each list
+# MN: you are assuming that all your files have exactly 150 lines plus the header
+#     what if the file change and has a differnt number of lines?
 del distances[0], distances[150], distances[300], people[0], people[150], people[300]
 
 # Calculating the total distance ran
@@ -58,9 +69,11 @@ while index < len(distances):
 
 # Calculating who ran the furthest and least
 # Variables for the max and min runners and distances
+# MN: here you find the mac and min single distance, not the total distance run by the participants 
 max_dist = max(distances)
 min_dist = min(distances)
 # Assigns which person has the index of the max and min distances
+# MN: this method works as long as you do not have 2 participants with the same distance run
 max_part = people[distances.index(max_dist)]
 min_part = people[distances.index(min_dist)]
 
@@ -75,6 +88,9 @@ for stuff in people:
     if stuff not in total_part:
         # If this is the first time seeing the name, it is added to the list of all participants
         total_part.append(stuff)
+    # MN: with the following 2 if blocks, you assume that the maximum repeats is 3
+    #     what if you have a participant that has more than 3 records?
+    #     Never assume anythin, always expect the exception to your assumtions
     elif stuff in total_part and stuff not in repeats:
         # If this is the second time, it is added to repeats with a value of 2
         repeats[stuff] = '2'
@@ -96,7 +112,7 @@ print("with multiple records        :", len(repeats))
 
 # Writing an output file with the information
 # Opens a file to be written
-output = open("f2016_cs8_arm193_a3.data.output.csv", 'w')
+output = open("f2016_cs8_arm198_a3.data.output.csv", 'w')
 # For loop to go through each name
 for each in people:
     # Writes the person's name, how many times their name repeats (or 1 if it doesn't repeat), and their distance
