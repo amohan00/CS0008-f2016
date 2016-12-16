@@ -1,3 +1,9 @@
+# name       : Arun Mohan
+# email      : arm198@pitt.edu
+# date       : 12/16/16
+# class      : CS0008-f2016
+# instructor : Max Novelli (man8@pitt.edu)
+
 # definition of the class participant
 class participant:
     """ participant class"""
@@ -106,7 +112,7 @@ dist_total = 0
 # Empty lists to hold all the distances and names
 distances = []
 people = []
-test = []
+full_list = []
 
 # For loop to go through and open each file
 for line in file_names:
@@ -125,30 +131,34 @@ for line in file_names:
         # Removes the space from the names and adds them to a list
         people.append(temp[0].strip(' '))
         #
-        test.append({'name': temp[0].strip(' ')})
+        full_list.append({'name': temp[0].strip(' '), 'distance': float(temp[1])})
         # Adds one to the line counter
         line_counter += 1
     # Closes the file
     names.close()
 
-# Calculating the total distance ran
-# Variables for the index and the total distance
-index = 0
-total_distance = 0
-# While loop that goes through every index of distances and adds the values
-while index < len(distances):
-    # Converts every distance to a float and adds to total
-    total_distance += float(distances[index])
-    # Adds one to the index
-    index += 1
+no_repeats = {}
+for thing in full_list:
+    temp_name = thing.get('name')
+    temp_dist = thing.get('distance')
+    if not temp_name in no_repeats:
+        no_repeats[temp_name] = temp_dist
+    else:
+        no_repeats[temp_name] = no_repeats.get(temp_name) + temp_dist
+total_dist = 0
+for row in no_repeats.values():
+    total_dist += row
 
 # Calculating who ran the furthest and least
 # Variables for the max and min runners and distances
-max_dist = max(distances)
-min_dist = min(distances)
+max_dist = max(no_repeats.values())
+min_dist = min(no_repeats.values())
 # Assigns which person has the index of the max and min distances
-max_part = people[distances.index(max_dist)]
-min_part = people[distances.index(min_dist)]
+for item in no_repeats.keys():
+    if no_repeats[item] == max_dist:
+        max_part = item
+    elif no_repeats[item] == min_dist:
+        min_part = item
 
 # Finding how many names repeat and total names
 # Empty list and dictionary to count repeats
@@ -171,7 +181,7 @@ for stuff in people:
 # Printing all the information with the correct formatting
 print("Number of Input files read   :", file_counter)
 print("Total number of lines read   :", line_counter)
-print("\ntotal distance run           :", total_distance)
+print("\ntotal distance run           :", total_dist)
 print("\nmax distance run             :", max_dist)
 print("  by participant             :", max_part)
 print("\nmin distance run             :", min_dist)
